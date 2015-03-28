@@ -21,7 +21,7 @@ int main()
 
     Net myNet(topology);
 
-    for(size_t i = 0; i < 2000; ++i)
+    for(size_t i = 0; i < 20000; ++i)
     {
         int n1 = (int)(2.0 * rand() / double(RAND_MAX));
         int n2 = (int)(2.0 * rand() / double(RAND_MAX));
@@ -42,19 +42,26 @@ int main()
 
     std::cout << "Test:" << std::endl;
 
-    for(size_t i = 0; i < 10; ++i)
-    {
-        int n1 = (int)(2.0 * rand() / double(RAND_MAX));
-        int n2 = (int)(2.0 * rand() / double(RAND_MAX));
+    std::vector<double> input = { 0, 0 };
+    myNet.feedForward(input);
 
-        std::vector<double> input;
-        input.push_back(n1);
-        input.push_back(n2);
+    std::cout << "For input1 =" << input[0] << ", input2 =" << input[1] << " result is = " << myNet.getResults()[0] << '.' << std::endl;
 
-        myNet.feedForward(input);
+    input = { 0, 1 };
+    myNet.feedForward(input);
 
-        std::cout << "For input1 =" << n1 << ", input2 =" << n2 << " result is = " << myNet.getResults()[0] << << std::endl;
-    }
+    std::cout << "For input1 =" << input[0] << ", input2 =" << input[1] << " result is = " << myNet.getResults()[0] << '.' << std::endl;
+
+    input = { 1, 0 };
+    myNet.feedForward(input);
+
+    std::cout << "For input1 =" << input[0] << ", input2 =" << input[1] << " result is = " << myNet.getResults()[0] << '.' << std::endl;
+
+    input = { 1, 1 };
+    myNet.feedForward(input);
+
+    std::cout << "For input1 =" << input[0] << ", input2 =" << input[1] << " result is = " << myNet.getResults()[0] << '.' << std::endl;
+
 
     return 0;
 }
