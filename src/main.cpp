@@ -10,7 +10,7 @@
 
 //#include <Neuron.hpp>
 #include "Net.hpp"
-
+#include "Logger.hpp"
 
 int main()
 {
@@ -40,27 +40,27 @@ int main()
 
     }
 
-    std::cout << "Test:" << std::endl;
+    LOG(INFO,"Test:");
 
     std::vector<double> input = { 0, 0 };
     myNet.feedForward(input);
 
-    std::cout << "For input1 =" << input[0] << ", input2 =" << input[1] << " result is = " << myNet.getResults()[0] << '.' << std::endl;
+    LOG(INFO,"For input1 =" + std::to_string(input[0]) + ", input2 =" + std::to_string(input[1]) + " result is = " + std::to_string(myNet.getResults()[0]) + '.');
 
     input = { 0, 1 };
     myNet.feedForward(input);
 
-    std::cout << "For input1 =" << input[0] << ", input2 =" << input[1] << " result is = " << myNet.getResults()[0] << '.' << std::endl;
+    LOG(INFO,"For input1 =" + std::to_string(input[0]) + ", input2 =" + std::to_string(input[1]) + " result is = " + std::to_string(myNet.getResults()[0]) + '.');
 
     input = { 1, 0 };
     myNet.feedForward(input);
 
-    std::cout << "For input1 =" << input[0] << ", input2 =" << input[1] << " result is = " << myNet.getResults()[0] << '.' << std::endl;
+    LOG(INFO,"For input1 =" + std::to_string(input[0]) + ", input2 =" + std::to_string(input[1]) + " result is = " + std::to_string(myNet.getResults()[0]) + '.');
 
     input = { 1, 1 };
     myNet.feedForward(input);
 
-    std::cout << "For input1 =" << input[0] << ", input2 =" << input[1] << " result is = " << myNet.getResults()[0] << '.' << std::endl;
+    LOG(INFO,"For input1 =" + std::to_string(input[0]) + ", input2 =" + std::to_string(input[1]) + " result is = " + std::to_string(myNet.getResults()[0]) + '.');
 
 
     return 0;
