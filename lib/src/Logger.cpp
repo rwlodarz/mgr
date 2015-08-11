@@ -12,7 +12,7 @@ const std::string getTimeInNs();
 
 Logger::Logger() : m_endThread(false), m_size(0), m_mutex(), m_addMutex(), m_cv()
 {
-     std::string fileName = currentDateTime() + ".log";
+     std::string fileName = "./logs/" + currentDateTime() + ".log";
      m_file.open(fileName, std::fstream::app | std::fstream::out);
      m_loggingThread = std::thread(&Logger::loggingThread, this);
      sched_param sch;
@@ -90,7 +90,7 @@ void Logger::addMsg(LOG_LEVEL lvl, const std::string &msg)
 
      if(str.size())
      {
-          str = getTimeInNs() + str;
+          str = currentDateTime() + str;
           addMsg(str);
      }
 }
@@ -112,7 +112,7 @@ const std::string currentDateTime()
     tstruct = *localtime(&now);
     // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
     // for more information about date/time format
-    strftime(buf, sizeof(buf), "%Y-%m-%d.%H-%M", &tstruct);
+    strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S.%f", &tstruct);
     //buf[13] = '-';
     //buf[16] = '-';
 
