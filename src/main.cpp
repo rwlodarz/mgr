@@ -8,7 +8,6 @@
 
 #include <iostream>
 
-//#include <Neuron.hpp>
 #include "Net.hpp"
 #include "Logger.hpp"
 
@@ -40,28 +39,31 @@ int main()
 
     }
 
-    LOG(INFO,"Test:");
+    LOG(INFO,"Testing:");
 
     std::vector<double> input = { 0, 0 };
     myNet.feedForward(input);
 
     LOG(INFO,"For input1 =" + std::to_string(input[0]) + ", input2 =" + std::to_string(input[1]) + " result is = " + std::to_string(myNet.getResults()[0]) + '.');
+    LOG(DEBUG, "Output 1" + std::to_string(myNet.getResults()[1]));
 
     input = { 0, 1 };
     myNet.feedForward(input);
 
     LOG(INFO,"For input1 =" + std::to_string(input[0]) + ", input2 =" + std::to_string(input[1]) + " result is = " + std::to_string(myNet.getResults()[0]) + '.');
+    LOG(DEBUG, "Output 1" + std::to_string(myNet.getResults()[1]));
 
     input = { 1, 0 };
     myNet.feedForward(input);
 
     LOG(INFO,"For input1 =" + std::to_string(input[0]) + ", input2 =" + std::to_string(input[1]) + " result is = " + std::to_string(myNet.getResults()[0]) + '.');
+    LOG(DEBUG, "Output 1" + std::to_string(myNet.getResults()[1]));
 
     input = { 1, 1 };
     myNet.feedForward(input);
 
     LOG(INFO,"For input1 =" + std::to_string(input[0]) + ", input2 =" + std::to_string(input[1]) + " result is = " + std::to_string(myNet.getResults()[0]) + '.');
-
+    LOG(DEBUG, "Output 1" + std::to_string(myNet.getResults()[1]));
 
     return 0;
 }

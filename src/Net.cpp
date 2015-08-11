@@ -1,4 +1,5 @@
 #include "Net.hpp"
+#include "Logger.hpp"
 
 #include <iostream>
 #include <cassert>
@@ -17,7 +18,7 @@ Net::Net(const std::vector<size_t>& topology) :
         for(size_t j = 0; j <= topology[i]; ++j)
         {
             m_layers.back().push_back(Neuron(numOutputs, j));
-            std::cout << "New neuron" << std::endl;
+            LOG(INFO, "Creating new neuron, layer: " + std::to_string(i+1) + ", number: " + std::to_string(j+1) + ".");
         }
         m_layers.back().back().setOutput(1.0);
     }
