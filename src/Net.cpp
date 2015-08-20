@@ -18,7 +18,7 @@ Net::Net(const std::vector<size_t>& topology) :
         for(size_t j = 0; j <= topology[i]; ++j)
         {
             m_layers.back().push_back(Neuron(numOutputs, j));
-            LOG(INFO, "Creating new neuron, layer: " + std::to_string(i+1) + ", number: " + std::to_string(j+1) + ".");
+            LOG(INFO, std::string(__PRETTY_FUNCTION__) + " Creating new neuron, layer: " + std::to_string(i+1) + ", number: " + std::to_string(j+1) + ".");
         }
         m_layers.back().back().setOutput(1.0);
     }

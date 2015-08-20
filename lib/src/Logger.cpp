@@ -77,13 +77,13 @@ void Logger::addMsg(LOG_LEVEL lvl, const std::string &msg)
 
           #if ((LOGGING_LEVEL & _WARN) == _WARN)
      case LOG_LEVEL::WARN:
-          str = " | WARN | " + msg;
+          str = " | WARN  | " + msg;
           break;
           #endif
 
           #if ((LOGGING_LEVEL & _INFO) == _INFO)
      case LOG_LEVEL::INFO:
-          str = " | INFO | " + msg;
+          str = " | INFO  | " + msg;
           break;
           #endif
      }
@@ -112,7 +112,7 @@ const std::string currentDateTime()
     tstruct = *localtime(&now);
     // Visit http://en.cppreference.com/w/cpp/chrono/c/strftime
     // for more information about date/time format
-    strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S.%f", &tstruct);
+    strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", &tstruct);
     //buf[13] = '-';
     //buf[16] = '-';
 
