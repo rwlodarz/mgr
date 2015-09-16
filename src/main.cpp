@@ -43,7 +43,8 @@ int main()
 
     LOG(INFO,"Testing:");
 
-    std::vector<double> input = { 0.84018771715470952354820610707974992692470550537109375 };
+    std::vector<double> input = { 0.84018771715470952354820610707974992692470550537109331375 };
+    std::cout << std::setprecision(100) << "INPUT: " << input[0] << std::endl;
     myNet.feedForward(input);
 
     LOG(INFO,"For input1 =" + std::to_string(input[0]) + /*", input2 =" + std::to_string(input[1]) +*/ " result is = " + std::to_string(myNet.getResults()[0]) + '.');
