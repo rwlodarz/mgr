@@ -36,8 +36,8 @@ Neuron::Neuron(size_t numOutputs, size_t index) : m_index(index), m_gradient(0),
     for(size_t i = 0; i < numOutputs; ++i)
     {
         m_outputWeights.push_back(Connection());
-        m_outputWeights.back().weight = weights[weights_index++];//randomWeight();
-        std::cout << std::setprecision(100) << std::string(__PRETTY_FUNCTION__) << " Weight for neuron: " << index << " output: " << i <<" value: " << m_outputWeights.back().weight << std::endl;
+        m_outputWeights.back().weight = randomWeight();//weights[weights_index++];//
+//        std::cout << std::setprecision(100) << std::string(__PRETTY_FUNCTION__) << " Weight for neuron: " << index << " output: " << i <<" value: " << m_outputWeights.back().weight << std::endl;
     }
 }
 
@@ -46,18 +46,18 @@ void Neuron::feedForward(Layer& prevLayer)
     double sum = 0.0;
     for(size_t i = 0; i < prevLayer.size(); ++i)
     {
-    	std::cout << std::setprecision(100) << std::string(__PRETTY_FUNCTION__) +
-    			" Neuron: " << m_index <<
-				" output: " << prevLayer[i].getOutput() <<
-				" weight: " << prevLayer[i].getOutputWeights()[m_index].weight <<
-				" result: " << prevLayer[i].getOutput() * prevLayer[i].getOutputWeights()[m_index].weight << std::endl;
+//    	std::cout << std::setprecision(100) << std::string(__PRETTY_FUNCTION__) +
+//    			" Neuron: " << m_index <<
+//				" output: " << prevLayer[i].getOutput() <<
+//				" weight: " << prevLayer[i].getOutputWeights()[m_index].weight <<
+//				" result: " << prevLayer[i].getOutput() * prevLayer[i].getOutputWeights()[m_index].weight << std::endl;
         sum += prevLayer[i].getOutput() * prevLayer[i].getOutputWeights()[m_index].weight;
     }
     m_output = Neuron::transferFunction(sum);
-	std::cout << std::setprecision(100) << std::string(__PRETTY_FUNCTION__) <<
-			" Neuron: " << m_index <<
-			" sum: " << sum <<
-			" total output:" << m_output << std::endl;
+//	std::cout << std::setprecision(100) << std::string(__PRETTY_FUNCTION__) <<
+//			" Neuron: " << m_index <<
+//			" sum: " << sum <<
+//			" total output:" << m_output << std::endl;
 }
 
 double Neuron::transferFunction(double x)
